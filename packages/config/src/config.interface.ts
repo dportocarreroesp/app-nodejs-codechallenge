@@ -1,5 +1,3 @@
-import { Transport } from '@nestjs/microservices';
-
 export type ConfigData = {
   env: string;
   port: number;
@@ -11,5 +9,4 @@ export type TransactionSvcConfig = {
     host: string;
     port: number;
   };
-  transport: Transport.TCP;
 };

@@ -1,5 +1,4 @@
 import { ConfigData } from './config.interface';
-import { Transport } from '@nestjs/microservices';
 
 export const DEFAULT_CONFIG: ConfigData = {
   env: 'production',
@@ -9,6 +8,5 @@ export const DEFAULT_CONFIG: ConfigData = {
       host: 'localhost',
       port: 3001,
     },
-    transport: Transport.TCP,
   },
 };

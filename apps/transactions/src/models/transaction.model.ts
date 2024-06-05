@@ -20,7 +20,8 @@ registerEnumType(TransactionStatus, {
 // TODO: use class provided in yape code repository
 @ObjectType()
 export class Transaction {
-  uid: number;
+  @Field()
+  uid: string;
 
   @Field(() => GraphQLISODateTime)
   created_at?: Date;

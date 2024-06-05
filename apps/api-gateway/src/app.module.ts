@@ -1,8 +1,13 @@
 import { ConfigModule, ConfigService } from '@codechallenge/config';
-import { Module } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ClientProxyFactory } from '@nestjs/microservices';
+import { ProxyTransactionMiddleware } from './middleware/proxy-transaction.middleware';
 
 @Module({
   imports: [ConfigModule],
@@ -10,13 +15,18 @@ import { ClientProxyFactory } from '@nestjs/microservices';
   providers: [
     AppService,
     {
-      provide: 'TRANSACTION_SERVICE',
+      provide: 'CONFIG_SERVICE',
       useFactory: (configService: ConfigService) => {
-        const transactionSvcConfig = configService.get().transactionService;
-        return ClientProxyFactory.create(transactionSvcConfig);
+        return configService;
       },
       inject: [ConfigService],
     },
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(ProxyTransactionMiddleware)
+      .forRoutes({ path: 'api/v1/transactions/*', method: RequestMethod.ALL });
+  }
+}

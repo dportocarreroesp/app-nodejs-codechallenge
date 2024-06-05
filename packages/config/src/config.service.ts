@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Transport } from '@nestjs/microservices';
 import { DEFAULT_CONFIG } from './config.defaults';
 import { ConfigData } from './config.interface';
 
@@ -31,7 +30,6 @@ export class ConfigService {
             ? parseInt(env.TRANSACTION_SERVICE_PORT, 10)
             : DEFAULT_CONFIG.transactionService.options.port,
         },
-        transport: Transport.TCP,
       },
     };
   }
