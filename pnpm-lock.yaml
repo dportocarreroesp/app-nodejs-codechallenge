@@ -43,6 +43,9 @@ importers:
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
+      class-validator:
+        specifier: ^0.14.1
+        version: 0.14.1
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -486,6 +489,9 @@ importers:
       "@nestjs/schematics":
         specifier: ^10.0.0
         version: 10.1.1(typescript@5.4.5)
+      "@prisma/client":
+        specifier: ^5.14.0
+        version: 5.14.0(prisma@5.14.0)
       "@types/express":
         specifier: ^4.17.17
         version: 4.17.21

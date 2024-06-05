@@ -8,7 +8,7 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 async function bootstrap() {
   const configSvc = new ConfigService();
   configSvc.loadFromEnv();
-  const antiFraudConfig = configSvc.get().antiFraudService;
+  const kafkaConfig = configSvc.get().kafkaConfig;
 
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AntiFraudModule,
@@ -17,9 +17,7 @@ async function bootstrap() {
       options: {
         client: {
           clientId: 'anti-fraud',
-          brokers: [
-            `${antiFraudConfig.options.host}:${antiFraudConfig.options.port}`,
-          ],
+          brokers: [`${kafkaConfig.options.host}:${kafkaConfig.options.port}`],
         },
         consumer: {
           groupId: 'anti-fraud-consumer',

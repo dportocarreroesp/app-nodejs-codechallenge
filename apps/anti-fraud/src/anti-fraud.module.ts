@@ -12,14 +12,14 @@ import { ClientProxyFactory } from '@nestjs/microservices';
     {
       provide: 'TRANSACTION_STATUS_SERVICE',
       useFactory: (configService: ConfigService) => {
-        const antiFraudConfig = configService.get().antiFraudService;
+        const kafkaConfig = configService.get().kafkaConfig;
         return ClientProxyFactory.create({
-          transport: antiFraudConfig.transport,
+          transport: kafkaConfig.transport,
           options: {
             client: {
               clientId: 'anti-fraud',
               brokers: [
-                `${antiFraudConfig.options.host}:${antiFraudConfig.options.port}`,
+                `${kafkaConfig.options.host}:${kafkaConfig.options.port}`,
               ],
             },
             consumer: {

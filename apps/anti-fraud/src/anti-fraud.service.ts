@@ -1,12 +1,16 @@
 import { CreateTransactionEventDto } from '@codechallenge/shared';
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
 import { ClientKafka } from '@nestjs/microservices';
 
 @Injectable()
-export class AntiFraudService {
+export class AntiFraudService implements OnModuleInit {
   constructor(
     @Inject('TRANSACTION_STATUS_SERVICE') private client: ClientKafka,
   ) {}
+
+  async onModuleInit() {
+    await this.client.connect();
+  }
 
   getHello(): string {
     return 'Hello World!';

@@ -1,15 +1,19 @@
 import { PrismaService } from '@codechallenge/database';
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
 import { CreateTransactionInput } from './dto/input/create-transaction.input';
 import { ClientKafka } from '@nestjs/microservices';
 import { UpdateTransactionEventDto } from '@codechallenge/shared';
 
 @Injectable()
-export class TransactionService {
+export class TransactionService implements OnModuleInit {
   constructor(
     private readonly prismaService: PrismaService,
     @Inject('TRANSACTION_STATUS_SERVICE') private client: ClientKafka,
   ) {}
+
+  async onModuleInit() {
+    await this.client.connect();
+  }
 
   findById(uid: string) {
     return this.prismaService.transaction.findUnique({

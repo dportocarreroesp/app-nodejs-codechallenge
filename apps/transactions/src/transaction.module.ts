@@ -29,14 +29,14 @@ import { TransactionController } from './transaction.controller';
     {
       provide: 'TRANSACTION_STATUS_SERVICE',
       useFactory: (ConfigService: ConfigService) => {
-        const antiFraudConfig = ConfigService.get().antiFraudService;
+        const kafkaConfig = ConfigService.get().kafkaConfig;
         return ClientProxyFactory.create({
-          transport: antiFraudConfig.transport,
+          transport: kafkaConfig.transport,
           options: {
             client: {
               clientId: 'transactions',
               brokers: [
-                `${antiFraudConfig.options.host}:${antiFraudConfig.options.port}`,
+                `${kafkaConfig.options.host}:${kafkaConfig.options.port}`,
               ],
             },
             consumer: {

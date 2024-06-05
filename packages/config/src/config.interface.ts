@@ -4,7 +4,7 @@ export type ConfigData = {
   env: string;
   port: number;
   transactionService: TransactionSvcConfig;
-  antiFraudService: AntiFraudSvcConfig;
+  kafkaConfig: KafkaConfig;
 };
 
 export type TransactionSvcConfig = {
@@ -14,7 +14,7 @@ export type TransactionSvcConfig = {
   };
 };
 
-export type AntiFraudSvcConfig = {
+export type KafkaConfig = {
   transport: Transport.KAFKA;
   options: {
     host: string;

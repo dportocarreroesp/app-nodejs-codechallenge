@@ -1,0 +1,14 @@
+# Files
+/**/*/README.md
+/**/*/.git
+/**/*/.gitignore
+/**/*/npm-debug.log
+/**/*/.dockerignore
+/**/*/Dockerfile
+.git
+.gitignore
+
+# Directories
+/**/*/node_modules
+/**/*/dist
+node_modules

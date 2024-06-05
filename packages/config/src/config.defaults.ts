@@ -10,7 +10,7 @@ export const DEFAULT_CONFIG: ConfigData = {
       port: 3001,
     },
   },
-  antiFraudService: {
+  kafkaConfig: {
     transport: Transport.KAFKA,
     options: {
       host: 'localhost',
