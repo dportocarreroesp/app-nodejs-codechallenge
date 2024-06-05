@@ -1,0 +1,23 @@
+{
+  "name": "app-nodejs-codechallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm exec nx run-many --target=build",
+    "lint": "pnpm exec nx run-many --target=lint",
+    "format": "pnpm exec nx run-many --target=format",
+    "test": "pnpm exec nx run-many --target=test",
+    "prettier": "pnpm pretty-quick --staged",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nx": "^19.1.1",
+    "husky": "^8.0.0",
+    "prettier": "^3.2.5",
+    "pretty-quick": "^4.0.0"
+  }
+}

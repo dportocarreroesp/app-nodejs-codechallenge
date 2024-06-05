@@ -1,0 +1,5 @@
+packages:
+  # shared packages across the monorepo
+  - "packages/*"
+  # monorepo main applications
+  - "apps/*"
