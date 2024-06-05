@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class AppService {
+export class TransactionService {
   getHello(): string {
-    return 'Hello from API GATEWAY';
+    return 'Hello from TRANSACTIONS MICROSERVICE';
   }
 }
