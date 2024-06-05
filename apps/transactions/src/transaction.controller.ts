@@ -7,7 +7,7 @@ export class TransactionController {
   constructor(private readonly transactionSvc: TransactionService) {}
 
   @MessagePattern('hello_world')
-  getHello(payload: any): string {
-    return this.transactionSvc.getHello();
+  getHello(): string {
+    return 'Hello from Transaction Microservice';
   }
 }

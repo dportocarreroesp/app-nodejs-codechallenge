@@ -35,5 +35,6 @@ model Transaction {
 
 model TransactionType {
   id          Int           @id @default(autoincrement())
+  name        String
   Transaction Transaction[]
 }
