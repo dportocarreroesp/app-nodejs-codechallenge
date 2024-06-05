@@ -17,7 +17,6 @@ registerEnumType(TransactionStatus, {
   description: 'Transaction Status',
 });
 
-// TODO: use class provided in yape code repository
 @ObjectType()
 export class Transaction {
   @Field()

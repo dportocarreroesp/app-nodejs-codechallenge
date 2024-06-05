@@ -1,5 +1,5 @@
 import { InputType, Field, Int, Float } from '@nestjs/graphql';
-import { IsInt, IsNumber, IsString, Min, MinLength } from 'class-validator';
+import { IsInt, IsNumber, Min, IsUUID } from 'class-validator';
 
 @InputType()
 export class CreateTransactionInput {
@@ -13,12 +13,10 @@ export class CreateTransactionInput {
   value: number;
 
   @Field()
-  @IsString()
-  @MinLength(36)
+  @IsUUID()
   accountExternalIdDebit: string;
 
   @Field()
-  @IsString()
-  @MinLength(36)
+  @IsUUID()
   accountExternalIdCredit: string;
 }
