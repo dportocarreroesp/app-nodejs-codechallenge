@@ -142,6 +142,8 @@ pnpm start:dev
 
 ### Creating a transaction
 
+GraphQL endpoint: `POST http://localhost:3000/api/v1/transactions/graphql`
+
 ```
 mutation {
     createTransaction(createTransactionData:{value: 1001, transferTypeId: 1, accountExternalIdDebit: "1885f5ad-cb0f-485f-966b-926ad9b0ed1e", accountExternalIdCredit: "1885f5ad-cb0f-485f-966b-926ad9b0ed1e"}) {
