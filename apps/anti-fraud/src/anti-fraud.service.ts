@@ -12,10 +12,6 @@ export class AntiFraudService implements OnModuleInit {
     await this.client.connect();
   }
 
-  getHello(): string {
-    return 'Hello World!';
-  }
-
   validateTransaction(data: CreateTransactionEventDto) {
     console.info(
       `[ANTIFRAUD SERVICE]: Publishing event "transaction_status_update" with ${data.uid} ${data.value > 1000 ? 'REJECTED' : 'APPROVED'}`,
