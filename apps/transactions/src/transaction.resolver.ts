@@ -33,6 +33,10 @@ export class TransactionResolver {
     @Args('createTransactionData')
     createTransactionData: CreateTransactionInput,
   ) {
+    console.info(
+      `[TRANSACTION RESOLVER]: Creating transaction`,
+      createTransactionData,
+    );
     return this.transactionService.createTransaction(createTransactionData);
   }
 

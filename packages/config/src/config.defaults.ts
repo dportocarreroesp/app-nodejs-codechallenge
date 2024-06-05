@@ -1,3 +1,4 @@
+import { Transport } from '@nestjs/microservices';
 import { ConfigData } from './config.interface';
 
 export const DEFAULT_CONFIG: ConfigData = {
@@ -7,6 +8,13 @@ export const DEFAULT_CONFIG: ConfigData = {
     options: {
       host: 'localhost',
       port: 3001,
+    },
+  },
+  antiFraudService: {
+    transport: Transport.KAFKA,
+    options: {
+      host: 'localhost',
+      port: 9092,
     },
   },
 };

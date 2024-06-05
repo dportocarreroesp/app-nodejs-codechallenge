@@ -31,6 +31,17 @@ export class ConfigService {
             : DEFAULT_CONFIG.transactionService.options.port,
         },
       },
+      antiFraudService: {
+        transport: DEFAULT_CONFIG.antiFraudService.transport,
+        options: {
+          host:
+            env.ANTIFRAUD_SERVICE_HOST ??
+            DEFAULT_CONFIG.antiFraudService.options.host,
+          port: env.ANTIFRAUD_SERVICE_PORT
+            ? parseInt(env.ANTIFRAUD_SERVICE_PORT, 10)
+            : DEFAULT_CONFIG.antiFraudService.options.port,
+        },
+      },
     };
   }
 }
